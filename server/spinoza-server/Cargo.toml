@@ -1,5 +1,5 @@
 [package]
-name = "spinoza-server"
+name = "spinoza_server"
 version = "0.1.0"
 authors = ["Yuki <yuki.mul.tiplus@gmail.com>"]
 

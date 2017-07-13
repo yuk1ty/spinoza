@@ -1,27 +1,12 @@
-extern crate iron;
-extern crate router;
+extern crate spinoza_server;
 
-use iron::{Iron, Request, Response, IronResult};
-use iron::status;
-use router::Router;
+extern crate router;
+extern crate iron;
+
+use iron::Iron;
+
+use spinoza_server::handlers::*;
 
 fn main() {
-    let mut router = Router::new();
-    router.get("/", handler, "query");
-    router.get("/:query", query_handler, "query_handler");
-
-    Iron::new(router).http("localhost:9999").unwrap();
-
-    fn handler(_: &mut Request) -> IronResult<Response> {
-        Ok(Response::with((status::Ok, "OK")))
-    }
-
-    fn query_handler(req: &mut Request) -> IronResult<Response> {
-        let ref query = req.extensions
-            .get::<Router>()
-            .unwrap()
-            .find("query")
-            .unwrap_or("/");
-        Ok(Response::with((status::Ok, *query)))
-    }
+    Iron::new(prepare_router()).http("localhost:9999").unwrap();
 }
