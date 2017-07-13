@@ -1,0 +1,8 @@
+[package]
+name = "spinoza-server"
+version = "0.1.0"
+authors = ["Yuki <yuki.mul.tiplus@gmail.com>"]
+
+[dependencies]
+router = "*"
+iron = "0.5.1"
