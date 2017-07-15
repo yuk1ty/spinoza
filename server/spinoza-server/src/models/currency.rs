@@ -1,11 +1,18 @@
+use models::enums::Exchange;
+
+#[derive(PartialEq, Hash, Clone)]
 pub struct Currency<'a> {
     id: u32,
-    name: &'a str,
-    exchange: &'a str,
+    ticker: &'a str,
+    exchange: Exchange,
 }
 
 impl<'a> Currency<'a> {
-    fn new(&'a self, id: u32, name: &'a str, exchange: &'a str) -> Currency {
-        Currency { id, name, exchange }
+    pub fn new(id: u32, ticker: &'a str, exchange: Exchange) -> Currency<'a> {
+        Currency {
+            id,
+            ticker,
+            exchange,
+        }
     }
 }
