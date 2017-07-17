@@ -15,19 +15,19 @@ fn eq_currency_test() {
 
 #[test]
 fn eq_market_value_test() {
-    let this = MarketValue::new(1 as u32, "BitCoin", 120.0, 90.0, 14412234);
-    let other = MarketValue::new(1 as u32, "BitCoin", 120.0, 90.0, 14412234);
+    let this = MarketValue::new(1 as u32, "BitCoin", 100.0, 120.0, 90.0, 14412234);
+    let other = MarketValue::new(1 as u32, "BitCoin", 100.0, 120.0, 90.0, 14412234);
 
     assert!(this.eq(&other));
 
-    let another = MarketValue::new(2 as u32, "BitCoin", 120.0, 90.0, 14412234);
+    let another = MarketValue::new(2 as u32, "BitCoin", 100.0, 120.0, 90.0, 14412234);
     assert!(!this.eq(&another));
 }
 
 #[test]
 fn eq_position_test() {
     let currency = Currency::new(1 as u32, "BitCoin", Exchange::CoinChecker);
-    let market_value = MarketValue::new(1 as u32, "BitCoin", 120.0, 90.0, 14412234);
+    let market_value = MarketValue::new(1 as u32, "BitCoin", 100.0, 120.0, 90.0, 14412234);
     let this = Position::new(1 as u32, &currency, 1, &market_value, 100.0);
     let other = Position::new(1 as u32, &currency, 1, &market_value, 100.0);
     assert!(this.eq(&other));

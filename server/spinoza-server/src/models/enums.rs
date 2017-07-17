@@ -1,3 +1,4 @@
+/// Spinoza's enum definition and associated methods
 #[derive(PartialEq, Hash, Clone)]
 pub enum Exchange {
     BitFlyer,

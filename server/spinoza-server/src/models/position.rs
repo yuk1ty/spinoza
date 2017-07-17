@@ -13,9 +13,9 @@ pub struct Position<'a> {
 impl<'a> Position<'a> {
     pub fn new(
         id: u32,
-        currency: &'a Currency<'a>,
+        currency: &'a Currency,
         amount: i32,
-        market_value: &'a MarketValue<'a>,
+        market_value: &'a MarketValue,
         acquisition_cost: f32,
     ) -> Position<'a> {
         Position {
